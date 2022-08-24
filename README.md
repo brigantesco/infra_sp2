@@ -34,3 +34,9 @@ docker-compose exec web python manage.py collectstatic --no-input
 Документация (запросы для работа с API):
 
  http://localhost/redoc/
+
+Аавтор проекта: 
+Ястребов Андрей 
+
+Лицензия: 
+MIT
