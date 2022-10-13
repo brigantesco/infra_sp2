@@ -1,5 +1,12 @@
 REST API YamDB - база отзывов о фильмах, музыке и книгах
 
+Проект YaMDb собирает отзывы (Review) пользователей на произведения (Titles). Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Список категорий (Category) может быть расширен администратором.
+
+Сами произведения в YaMDb не хранятся, здесь нельзя посмотреть фильм или послушать музыку.
+
+Используемые технологии:
+Python, Django, Django REST Framework, Simple-JWT, PostgreSQL, Nginx, Gunicorn, Docker, Docker-compose
+
 В директории infra создайте файл .env с переменными окружения для работы с базой данных:
 
 DJANGO_KEY='your Django secret key'
@@ -12,28 +19,27 @@ DB_PORT=5432 # порт для подключения к БД
 
 Как запустить проект:
 
-Перейти в папку infra и запустить docker-compose.yaml (при установленном и запущенном Docker)
-
+- Перейти в папку infra и запустить docker-compose.yaml (при установленном и запущенном Docker)
 cd infra_sp2/infra
 docker-compose up
-Для пересборки контейнеров выполнять команду: (находясь в папке infra, при запущенном Docker)
 
+- Для пересборки контейнеров выполнять команду: (находясь в папке infra, при запущенном Docker)
 docker-compose up -d --build
-В контейнере web выполнить миграции:
 
+- В контейнере web выполнить миграции:
 docker-compose exec web python manage.py migrate
-Создать суперпользователя:
 
+- Создать суперпользователя:
 docker-compose exec web python manage.py createsuperuser
-Собрать статику:
 
+- Собрать статику:
 docker-compose exec web python manage.py collectstatic --no-input
-Проверьте работоспособность приложения, для этого перейдите на страницу:
 
- http://localhost/admin/
-Документация (запросы для работа с API):
+- Проверьте работоспособность приложения, для этого перейдите на страницу:
+http://localhost/admin/
 
- http://localhost/redoc/
+- Документация (запросы для работа с API):
+http://localhost/redoc/
 
 Аавтор проекта: 
 Ястребов Андрей 
